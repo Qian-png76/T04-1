@@ -31,11 +31,28 @@
 			border-radius: 6px;
 			background: #d9eff5;
 		}
+
+		#scene-annotated #annotations {
+			font-size: 12px;
+			fill: #333;
+			stroke: #999;
+			stroke-width: 1;
+		}
+
+		#scene-annotated #annotations text {
+			stroke: none;
+			pointer-events: none;
+		}
+
+		#scene-annotated #annotations line {
+			pointer-events: none;
+		}
 	</style>
 </head>
 <body>
 	<main>
 		<h1>T04 – SVG House &amp; Garden</h1>
+		<figure id="scene-original">
 		<svg viewBox="0 0 800 500" role="img" aria-labelledby="scene-title scene-desc">
 			<title id="scene-title">A house and garden</title>
 			<desc id="scene-desc">A sunny garden with a cloud, leafy tree, red-roofed house, fence, and curved path through the grass.</desc>
@@ -75,6 +92,85 @@
 
 			<text x="155" y="474" text-anchor="middle" fill="#35583d" font-size="23">A little house in the garden</text>
 		</svg>
+			<figcaption>Original scene</figcaption>
+		</figure>
+		<figure id="scene-annotated-figure">
+			<svg id="scene-annotated" viewBox="0 0 800 500" role="img" aria-labelledby="scene-annotated-title scene-annotated-desc">
+				<title id="scene-annotated-title">A house and garden, annotated</title>
+				<desc id="scene-annotated-desc">The original house and garden scene with labels identifying examples of its SVG shapes.</desc>
+
+				<rect x="0" y="0" width="800" height="330" fill="#bfe5ef" />
+				<rect x="0" y="330" width="800" height="170" fill="#8fc47a" />
+
+				<circle cx="690" cy="82" r="43" fill="#ffd45c" />
+				<ellipse cx="160" cy="105" rx="47" ry="25" fill="#fffefa" />
+				<circle cx="133" cy="99" r="22" fill="#fffefa" />
+				<circle cx="172" cy="87" r="29" fill="#fffefa" />
+				<circle cx="196" cy="104" r="19" fill="#fffefa" />
+
+				<rect x="112" y="247" width="34" height="112" rx="4" fill="#805333" />
+				<circle cx="129" cy="215" r="56" fill="#4f9b58" />
+				<circle cx="94" cy="236" r="34" fill="#62ad63" />
+				<circle cx="163" cy="238" r="35" fill="#62ad63" />
+
+				<rect x="300" y="220" width="250" height="175" fill="#f2d5a4" stroke="#654b3a" stroke-width="3" />
+				<polygon points="278,225 425,112 572,225" fill="#b95345" stroke="#654b3a" stroke-width="4" />
+				<rect x="487" y="142" width="35" height="65" fill="#9c5846" stroke="#654b3a" stroke-width="3" />
+
+				<rect x="328" y="260" width="62" height="58" fill="#a8d9e6" stroke="#654b3a" stroke-width="3" />
+				<line x1="359" y1="260" x2="359" y2="318" stroke="#654b3a" stroke-width="3" />
+				<line x1="328" y1="289" x2="390" y2="289" stroke="#654b3a" stroke-width="3" />
+				<rect x="460" y="260" width="62" height="58" fill="#a8d9e6" stroke="#654b3a" stroke-width="3" />
+				<line x1="491" y1="260" x2="491" y2="318" stroke="#654b3a" stroke-width="3" />
+				<line x1="460" y1="289" x2="522" y2="289" stroke="#654b3a" stroke-width="3" />
+				<rect x="395" y="310" width="62" height="85" fill="#875c3d" stroke="#654b3a" stroke-width="3" />
+				<circle cx="444" cy="354" r="4" fill="#f3d77b" />
+
+				<polyline points="40,385 40,345 67,345 67,385 94,385 94,345 121,345 121,385 148,385 148,345 175,345 175,385 202,385 202,345 229,345 229,385 256,385 256,345 283,345 283,385" fill="none" stroke="#f5ecd8" stroke-width="8" stroke-linejoin="round" />
+				<line x1="35" y1="359" x2="288" y2="359" stroke="#d8c8a9" stroke-width="5" />
+				<line x1="35" y1="379" x2="288" y2="379" stroke="#d8c8a9" stroke-width="5" />
+
+				<path d="M 425 395 C 420 425, 470 444, 458 500 L 610 500 C 585 452, 548 423, 520 395 Z" fill="#d9bd8c" />
+
+				<text x="155" y="474" text-anchor="middle" fill="#35583d" font-size="23">A little house in the garden</text>
+
+				<g id="annotations">
+					<line x1="650" y1="40" x2="673" y2="57" />
+					<text x="555" y="34">circle: cx=690, cy=82, r=43</text>
+
+					<line x1="122" y1="78" x2="139" y2="88" />
+					<text x="12" y="62">ellipse: cx=160, cy=105, rx=47, ry=25</text>
+
+					<line x1="545" y1="350" x2="560" y2="350" />
+					<text x="565" y="348">
+						<tspan x="565" dy="0">rect: x=300, y=220</tspan>
+						<tspan x="565" dy="14">width=250, height=175</tspan>
+					</text>
+
+					<line x1="522" y1="289" x2="555" y2="300" />
+					<text x="560" y="301">line: (359,260) to (359,318)</text>
+
+					<line x1="42" y1="389" x2="66" y2="407" />
+					<text x="12" y="422">polyline: (40,385) (40,345) (67,345)</text>
+
+					<line x1="572" y1="222" x2="583" y2="207" />
+					<text x="584" y="204">
+						<tspan x="584" dy="0">polygon: (278,225) (425,112)</tspan>
+						<tspan x="584" dy="14">(572,225)</tspan>
+					</text>
+
+					<line x1="598" y1="447" x2="615" y2="437" />
+					<text x="617" y="435">
+						<tspan x="617" dy="0">path: M 425,395 C 420,425</tspan>
+						<tspan x="617" dy="14">..., L 610,500</tspan>
+					</text>
+
+					<line x1="290" y1="469" x2="308" y2="455" />
+					<text x="312" y="453">text: x=155, y=474</text>
+				</g>
+			</svg>
+			<figcaption>Annotated scene (Step 2)</figcaption>
+		</figure>
 	</main>
 </body>
 </html>
